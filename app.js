@@ -6,6 +6,9 @@ canvas.width = document.body.clientWidth;
 canvas.height = document.body.clientHeight;
 
 const scoreEl = document.querySelector('#score');
+const startBtn = document.querySelector('#startBtn');
+const startUI = document.querySelector('#startUI');
+const point = document.querySelector('#point');
 
 class Player {
     constructor(x, y, radius, color) {
@@ -177,6 +180,8 @@ function animate() {
 
         if (dist - player.radius - enemy.radius < 1) {
             cancelAnimationFrame(animationId);
+            startUI.style.display = 'flex';
+            point.innerHTML = score;
         }
 
         projectiles.forEach((projectile, j) => {
@@ -221,5 +226,8 @@ window.addEventListener('click', (event) => {
     projectiles.push(new Projectile(canvas.width / 2, canvas.height / 2, 5, 'white', velocity))
 });
 
-spawnEnemies();
-animate();
+startBtn.addEventListener('click', () => {
+    animate();
+    spawnEnemies();
+    startUI.style.display = 'none';
+});
