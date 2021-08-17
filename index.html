@@ -11,6 +11,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
         }
 
         body {
@@ -21,12 +22,27 @@
         canvas {
             border: 1px solid #303003;
         }
+
+        #scoreBoard {
+            position: absolute;
+            background-color: #fff;
+            padding: 10px;
+            font-weight: bold;
+            left: 50%;
+            transform: translate(-50%, 0);
+            -webkit-user-select: none;  /* Chrome all / Safari all */
+            -moz-user-select: none;     /* Firefox all */
+            -ms-user-select: none;      /* IE 10+ */
+            user-select: none;    
+        }
     </style>
 
 </head>
 <body>
 
+    <div id="scoreBoard"><span>Score: </span><span id="score">0</span></div>
     <canvas id="canvas"></canvas>
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.7.1/gsap.min.js" integrity="sha512-UxP+UhJaGRWuMG2YC6LPWYpFQnsSgnor0VUF3BHdD83PS/pOpN+FYbZmrYN+ISX8jnvgVUciqP/fILOXDjZSwg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="./app.js"></script>
